@@ -1,0 +1,20 @@
+{
+    "name": "smalot/online-api",
+    "description": "Online.net REST API client.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastien Malot",
+            "email": "smalot@actualys.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smalot\\Online\\": "src/"
+        }
+    }
+}
