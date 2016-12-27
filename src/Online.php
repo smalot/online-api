@@ -5,7 +5,7 @@ namespace Smalot\Online;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
-use Smalot\Online\Ressources\StorageC14;
+use Smalot\Online\Resources\StorageC14;
 
 /**
  * Class Online

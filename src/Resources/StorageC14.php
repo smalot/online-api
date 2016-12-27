@@ -1,12 +1,12 @@
 <?php
 
-namespace Smalot\Online\Ressources;
+namespace Smalot\Online\Resources;
 
 use Smalot\Online\Online;
 
 /**
  * Class StorageC14
- * @package Smalot\Online\Ressources
+ * @package Smalot\Online\Resources
  */
 class StorageC14
 {
