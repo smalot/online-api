@@ -4,6 +4,7 @@ namespace Smalot\Online;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 use Smalot\Online\Resources\StorageC14;
 
@@ -104,8 +105,19 @@ class Online
         }
 
         /** @var ResponseInterface $response */
-        $response = $this->getHttpClient()->request($method, $uri, $options);
-        $content = $response->getBody()->getContents();
+        try {
+            $response = $this->getHttpClient()->request($method, $uri, $options);
+            $content = $response->getBody()->getContents();
+        } catch(ClientException $e) {
+            $content = $e->getResponse()->getBody()->getContents();
+            $content = json_decode($content, true);
+
+            if (isset($content['error'], $content['code'])) {
+                throw new OnlineException($content['error'], $content['code']);
+            } else {
+                throw $e;
+            }
+        }
 
         return json_decode($content, true);
     }

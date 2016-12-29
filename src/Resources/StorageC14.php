@@ -431,7 +431,7 @@ class StorageC14
     public function doUnarchive($uuidSafe, $uuidArchive, $locationId, $rearchive = true, $key = '', $protocols = array(), $sshKeys = array())
     {
         $parameters = array(
-          'location_id' => $locationId,
+          'location_id' => (string) $locationId,
           'rearchive' => (bool) $rearchive,
           'key' => $key,
           'protocols' => $protocols,
